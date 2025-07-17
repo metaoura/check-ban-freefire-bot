@@ -38,7 +38,7 @@ async def on_ready():
     print(f"Le bot est connecté en tant que {bot.user}")
     await bot.change_presence(
         activity=discord.CustomActivity(name="　Meta　⎯⠀❐⠀⤬  "),
-        status=discord.Status.dnd
+        status=discord.Status.idle
     )
 
 @bot.command(name="guilds")
