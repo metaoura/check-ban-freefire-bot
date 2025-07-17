@@ -14,7 +14,7 @@ TOKEN = os.getenv("TOKEN")
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="-", intents=intents)
 
 DEFAULT_LANG = "en"
 user_languages = {}
@@ -58,7 +58,7 @@ async def change_language(ctx, lang_code: str):
     message = "✅ Language set to English." if lang_code == 'en' else "✅ Langue définie sur le français."
     await ctx.send(f"{ctx.author.mention} {message}")
 
-@bot.command(name="ID")
+@bot.command(name="id")
 async def check_ban_command(ctx):
     content = ctx.message.content
     user_id = content[3:].strip()
@@ -69,7 +69,7 @@ async def check_ban_command(ctx):
     if not user_id.isdigit():
         message = {
             "en": f"{ctx.author.mention} ❌ **Invalid UID!**\n➡️ Please use: `!ID 123456789`",
-            "fr": f"{ctx.author.mention} ❌ **UID invalide !**\n➡️ Veuillez fournir un UID valide sous la forme : `!ID 123456789`"
+            "fr": f"{ctx.author.mention} ❌ **UID invalide !**\n➡️ Veuillez fournir un UID valide sous la forme : `!id 123456789`"
         }
         await ctx.send(message[lang])
         return
