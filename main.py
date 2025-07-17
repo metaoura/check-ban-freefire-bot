@@ -43,6 +43,12 @@ async def show_guilds(ctx):
     guild_list = "\n".join(guild_names)
     await ctx.send(f"Le bot est dans les guilds suivantes :\n{guild_list}")
 
+@bot.status({
+    "text": "Click Here",
+    "type": "PLAYING",
+    "url": "https://discord.gg/NMKw222tqt"
+})
+
 @bot.command(name="lang")
 async def change_language(ctx, lang_code: str):
     lang_code = lang_code.lower()
