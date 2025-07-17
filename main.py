@@ -36,18 +36,16 @@ async def on_ready():
     global nomBot
     nomBot = f"{bot.user}"
     print(f"Le bot est connecté en tant que {bot.user}")
+    await bot.change_presence(
+        activity=discord.CustomActivity(name="　Meta　⎯⠀❐⠀⤬  "),
+        status=discord.Status.dnd
+    )
 
 @bot.command(name="guilds")
 async def show_guilds(ctx):
     guild_names = [f"{i+1}. {guild.name}" for i, guild in enumerate(bot.guilds)]
     guild_list = "\n".join(guild_names)
     await ctx.send(f"Le bot est dans les guilds suivantes :\n{guild_list}")
-
-@bot.status({
-    "text": "Click Here",
-    "type": "PLAYING",
-    "url": "https://discord.gg/NMKw222tqt"
-})
 
 @bot.command(name="lang")
 async def change_language(ctx, lang_code: str):
